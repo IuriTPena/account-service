@@ -14,18 +14,18 @@ public class AccountService implements IAccountService {
     @Autowired
     private IAccountRepository accountRepository;
 
-    public Account createAccount(Account account) {
+    public Account createAccount(final Account account) {
         accountRepository.save(account);
 
         return account;
     }
 
-    public Account retrieveAccount(String accountId) {
+    public Account retrieveAccount(final String accountId) {
         Optional<Account> accountDB = accountRepository.findById(accountId);
         return accountDB.get();
     }
 
-    public String updateAccount(String accountId, Account account) {
+    public String updateAccount(final String accountId, final Account account) {
         Optional<Account> accountDB = accountRepository.findById(accountId);
         String res;
 
@@ -40,7 +40,7 @@ public class AccountService implements IAccountService {
         return res;
     }
 
-    public String deleteAccount(String accountId) {
+    public String deleteAccount(final String accountId) {
         accountRepository.deleteById(accountId);
         return "Account successfully deleted";
     }

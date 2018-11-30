@@ -12,7 +12,7 @@ public class PrizeService implements IPrizeService {
     IPrizeRepository prizeRepository;
 
     @Override
-    public Prize createPrize(Prize prize) {
+    public Prize createPrize(final Prize prize) {
         return prizeRepository.save(prize);
     }
 }
